@@ -12,8 +12,6 @@ class SecondActivity : AppCompatActivity() {
         setContentView(R.layout.activity_second)
 
         backButton.setOnClickListener {
-//            startActivity<MainActivity>()
-//            finish()
             val countries = listOf("Russia", "USA", "Japan", "Australia")
             selector("Where are you from?", countries) { _, i ->
                 alert("So you're living in ${countries[i]}, cool! " +
