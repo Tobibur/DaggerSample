@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import com.tobibur.daggersample.di.component
 import kotlinx.android.synthetic.main.activity_main.*
+import org.jetbrains.anko.*
 import javax.inject.Inject
 
 class MainActivity : AppCompatActivity() {
@@ -19,5 +20,19 @@ class MainActivity : AppCompatActivity() {
         component.inject(this)
 
         textView.text = "$context"
+
+        toast("yay it works!")
+
+        nextButton.setOnClickListener{
+            alert("Do you want to go to the next Activity?") {
+                yesButton {
+                    startActivity<SecondActivity>()
+                    finish()
+                }
+                noButton { toast("Well you could've tested the context") }
+            }.show()
+
+        }
+
     }
 }
